@@ -18,5 +18,105 @@
         </ul>
       </nav>
     </header>
+
+    <form>
+      <div>
+        <label for="fName">First Name:</label>
+        <input
+          id="fName"
+          name="first_name"
+          type="text"
+          placeholder="John"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="lName">Last Name:</label>
+        <input
+          id="lName"
+          name="last_name"
+          type="text"
+          placeholder="Doe"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="johndoe@gmail.com"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="username">Username:</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          placeholder="JohnDoe"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="phone">Phone Number:</label>
+        <input
+          id="phone"
+          name="phone_number"
+          type="text"
+          placeholder="+254712345678"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="dob">Date of Birth:</label>
+        <input id="dob" name="date_of_birth" type="date" required />
+      </div>
+
+      <div>
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender">
+          <option value="0">--Select Gender--</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="************"
+          required
+        />
+      </div>
+
+      <div>
+        <input id="terms" name="terms" type="checkbox" required />
+        <label for="terms">I accept the terms and conditions</label>
+      </div>
+
+      <div>
+        <input id="privacy" name="privacy" type="checkbox" required />
+        <label for="privacy"
+          >I have read and understood the privacy policy</label
+        >
+      </div>
+
+      <!-- <input type="submit" value="Login" /> -->
+      <button type="submit">Register</button>
+    </form>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
   </body>
 </html>
