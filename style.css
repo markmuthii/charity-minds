@@ -1,0 +1,129 @@
+/* CSS Reset - Removes default browser styling */
+* {
+  margin: 0; /* Removes default margin from all elements */
+  padding: 0; /* Removes default padding from all elements */
+  box-sizing: border-box; /* Makes width/height include padding and border in calculations */
+}
+
+/* Root elements - Sets up the height chain for percentage calculations */
+html,
+body {
+  height: 100%; /* Sets explicit height so child elements can use percentage heights */
+  /* background-color: brown; */ /* Commented out background color */
+}
+
+/* Container - Centers content with responsive width */
+.container {
+  width: 90%; /* Takes 90% of parent width for responsive design */
+  margin: 0 auto; /* Centers the container horizontally */
+  padding: 1em 0; /* Adds vertical padding (top and bottom) */
+}
+
+/* List styling - Removes default bullet points */
+ul li {
+  list-style: none; /* Removes default bullet points from list items */
+}
+
+/* Link styling - Customizes appearance of all links */
+a {
+  text-decoration: none; /* Removes default underline from links */
+  color: #a80065; /* Sets custom color for all links */
+}
+
+/* Header - Main navigation bar styling */
+header {
+  background-color: #008a972e; /* Semi-transparent teal background */
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1); /* Adds subtle drop shadow */
+  /* margin-bottom: 30px; */ /* Commented out bottom margin */
+}
+
+/* Navigation - Flexbox layout for header content */
+nav {
+  display: flex; /* Creates flexible container */
+  justify-content: space-between; /* Pushes logo to left, nav links to right */
+  align-items: center; /* Vertically centers all nav items */
+}
+
+/* Logo section - Groups logo image and text */
+.logo {
+  display: flex; /* Creates flexible container for logo elements */
+  align-items: center; /* Vertically centers logo image and text */
+  gap: 10px; /* Adds space between logo image and text */
+  color: black; /* Sets text color for logo */
+}
+
+/* Logo image sizing */
+.logo img {
+  width: 90px; /* Sets fixed width for logo image */
+}
+
+/* Logo text styling */
+.logo h1 {
+  text-transform: uppercase; /* Converts text to uppercase */
+  font-size: 25px; /* Sets font size for logo text */
+}
+
+/* Navigation links - Horizontal layout for nav menu */
+nav ul {
+  display: flex; /* Creates horizontal layout for nav links */
+  gap: 20px; /* Adds space between navigation links */
+  font-size: 1.25em; /* Makes nav links slightly larger than default text */
+}
+
+/* AUTH PAGES (LOGIN AND REGISTER) - Main content area for authentication forms */
+main.auth-content {
+  /* background-color: aqua; */ /* Commented out background color */
+  min-height: calc(
+    100% - 87px
+  ); /* Takes full height minus header height (87px) */
+  display: flex; /* Creates flexible container for centering */
+  align-items: center; /* Vertically centers the form */
+  justify-content: center; /* Horizontally centers the form */
+}
+
+/* Form container - Responsive width with maximum limit */
+.auth-content form {
+  width: 70%; /* Takes 70% of parent width */
+  max-width: 300px; /* Prevents form from being too wide on large screens */
+}
+
+/* Regular form groups - Vertical layout for labels and inputs */
+.auth-content .form-group:not(.has-checkbox) {
+  display: flex; /* Creates flexible container */
+  flex-direction: column; /* Stacks label above input vertically */
+  gap: 3px; /* Small space between label and input */
+  margin-bottom: 10px; /* Space between form groups */
+}
+
+/* Checkbox form groups - Horizontal layout for checkboxes and labels */
+.auth-content .has-checkbox {
+  display: flex; /* Creates flexible container */
+  gap: 5px; /* Space between checkbox and label */
+  align-items: center; /* Vertically centers checkbox and label */
+  margin-bottom: 10px; /* Space between form groups */
+}
+
+/* Form labels - Styling for all form labels */
+.auth-content label {
+  font-size: 0.8em; /* Makes labels smaller than default text */
+  color: rgb(82, 82, 82); /* Sets gray color for labels */
+}
+
+/* Form inputs and selects - Styling for text inputs, selects, etc. (excludes checkboxes) */
+.auth-content input:not([type="checkbox"]),
+.auth-content select {
+  height: 25px; /* Sets fixed height for inputs */
+  padding: 5px; /* Adds internal spacing inside inputs */
+}
+
+/* Form buttons - Styling for submit buttons */
+.auth-content button {
+  display: block; /* Makes button a block element */
+  width: 100%; /* Makes button span full width of container */
+  padding: 5px 10px; /* Adds internal spacing (vertical, horizontal) */
+  background-color: #008c9a; /* Sets teal background color */
+  border: none; /* Removes default button border */
+  color: white; /* Sets white text color */
+  margin-bottom: 20px; /* Adds space below button */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
