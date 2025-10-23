@@ -1,8 +1,19 @@
+:root {
+  --primary-color: #008a97; /* Main teal color used throughout the site */
+  --secondary-color: #a80065; /* Accent pink/magenta color for links and highlights */
+  --space-between-elements: 20px; /* Standard spacing unit for consistent gaps */
+  --min-card-height: 150px; /* Minimum height for card components */
+}
+
 /* CSS Reset - Removes default browser styling */
 * {
   margin: 0; /* Removes default margin from all elements */
   padding: 0; /* Removes default padding from all elements */
   box-sizing: border-box; /* Makes width/height include padding and border in calculations */
+}
+
+html {
+  font-size: 16px; /* Sets base font size for rem calculations */
 }
 
 /* Root elements - Sets up the height chain for percentage calculations */
@@ -16,7 +27,19 @@ body {
 .container {
   width: 90%; /* Takes 90% of parent width for responsive design */
   margin: 0 auto; /* Centers the container horizontally */
-  padding: 1em 0; /* Adds vertical padding (top and bottom) */
+  padding: var(--space-between-elements) 0; /* Adds vertical padding (top and bottom) */
+}
+
+.section-heading {
+  font-size: 30px; /* Large font size for section titles */
+  margin-bottom: calc(
+    var(--space-between-elements) / 2
+  ); /* Half the standard spacing below heading */
+}
+
+div.table {
+  max-width: 100%; /* Prevents table from exceeding container width */
+  overflow-x: auto; /* Adds horizontal scrollbar when table content is too wide */
 }
 
 /* List styling - Removes default bullet points */
@@ -27,14 +50,27 @@ ul li {
 /* Link styling - Customizes appearance of all links */
 a {
   text-decoration: none; /* Removes default underline from links */
-  color: #a80065; /* Sets custom color for all links */
+  color: var(--secondary-color); /* Sets custom color for all links */
 }
 
 /* Header - Main navigation bar styling */
 header {
-  background-color: #008a972e; /* Semi-transparent teal background */
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color) 18%,
+    transparent
+  ); /* Semi-transparent primary color background */
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1); /* Adds subtle drop shadow */
   /* margin-bottom: 30px; */ /* Commented out bottom margin */
+}
+
+footer {
+  position: fixed; /* Keeps footer at bottom of viewport */
+  width: 100%; /* Spans full width of viewport */
+  bottom: 0; /* Positions footer at bottom of viewport */
+  background-color: var(--primary-color); /* Semi-transparent teal background */
+  text-align: center; /* Centers text content horizontally */
+  color: white; /* Sets white text color for contrast */
 }
 
 /* Navigation - Flexbox layout for header content */
@@ -48,7 +84,9 @@ nav {
 .logo {
   display: flex; /* Creates flexible container for logo elements */
   align-items: center; /* Vertically centers logo image and text */
-  gap: 10px; /* Adds space between logo image and text */
+  gap: var(
+    --space-between-elements
+  ); /* Adds space between logo image and text */
   color: black; /* Sets text color for logo */
 }
 
@@ -66,16 +104,19 @@ nav {
 /* Navigation links - Horizontal layout for nav menu */
 nav ul {
   display: flex; /* Creates horizontal layout for nav links */
-  gap: 20px; /* Adds space between navigation links */
+  gap: var(--space-between-elements); /* Adds space between navigation links */
   font-size: 1.25em; /* Makes nav links slightly larger than default text */
+}
+
+main {
+  min-height: calc(
+    100% - 96px
+  ); /* Takes full height minus header height (87px) */
+  padding-bottom: 70px !important; /* Adds space above fixed footer */
 }
 
 /* AUTH PAGES (LOGIN AND REGISTER) - Main content area for authentication forms */
 main.auth-content {
-  /* background-color: aqua; */ /* Commented out background color */
-  min-height: calc(
-    100% - 87px
-  ); /* Takes full height minus header height (87px) */
   display: flex; /* Creates flexible container for centering */
   align-items: center; /* Vertically centers the form */
   justify-content: center; /* Horizontally centers the form */
@@ -112,8 +153,9 @@ main.auth-content {
 /* Form inputs and selects - Styling for text inputs, selects, etc. (excludes checkboxes) */
 .auth-content input:not([type="checkbox"]),
 .auth-content select {
-  height: 25px; /* Sets fixed height for inputs */
+  min-height: 30px; /* Sets fixed height for inputs */
   padding: 5px; /* Adds internal spacing inside inputs */
+  width: 100%; /* Makes inputs span full width of container */
 }
 
 /* Form buttons - Styling for submit buttons */
@@ -126,4 +168,104 @@ main.auth-content {
   color: white; /* Sets white text color */
   margin-bottom: 20px; /* Adds space below button */
   cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+/* DASHBOARD STYLES */
+
+.dashboard-content > div {
+  margin-bottom: var(
+    --space-between-elements
+  ); /* Adds standard spacing between dashboard sections */
+}
+
+.welcome {
+  background-color: antiquewhite; /* Light beige background for welcome message */
+  display: inline-block; /* Allows width to fit content while staying inline */
+  min-width: 30%; /* Ensures minimum width for readability */
+  font-size: 1.5em; /* Makes text 1.5 times larger than base font size */
+  padding: 10px 30px; /* Adds internal spacing (vertical, horizontal) */
+  /* border-radius: 10px; */
+}
+
+/* .rounded {
+  width: 400px;
+  height: 400px;
+  background-color: #a80065;
+  border-radius: 200px;
+  background-image: url("https://img.freepik.com/free-photo/beautiful-african-young-woman-face-portrait_53876-148006.jpg?semt=ais_hybrid&w=740&q=80");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+} */
+
+.cards {
+  display: flex; /* Creates flexible container for cards */
+  justify-content: space-between; /* Distributes cards evenly with space between */
+  gap: var(
+    --space-between-elements
+  ); /* Adds consistent spacing between cards */
+}
+
+.card {
+  background-color: var(
+    --primary-color
+  ); /* Uses primary teal color for card background */
+  color: white; /* Sets white text color for contrast */
+  width: calc(100% / 4); /* Makes each card take 1/4 of container width */
+  min-height: var(
+    --min-card-height
+  ); /* Ensures minimum height for consistency */
+  display: flex; /* Creates flexible container for card content */
+  flex-direction: column; /* Stacks card content vertically */
+  align-items: center; /* Centers content horizontally */
+  justify-content: center; /* Centers content vertically */
+  gap: var(
+    --space-between-elements
+  ); /* Adds consistent spacing between card elements */
+}
+
+.card h3 {
+  font-size: 2em; /* Makes card headings twice the base font size */
+}
+
+.card p {
+  font-size: 1em; /* Sets card paragraph text to base font size */
+}
+
+/* Table Styles */
+.table {
+  width: 100%; /* Makes table span full width of container */
+}
+
+.table thead {
+  background-color: var(
+    --primary-color
+  ); /* Uses primary color for header background */
+  color: white; /* Sets white text color for header contrast */
+}
+
+.table thead th {
+  padding: 10px 5px; /* Adds internal spacing to header cells (vertical, horizontal) */
+}
+
+.table th,
+.table td {
+  text-align: left; /* Aligns text content to the left */
+  padding: 5px; /* Adds internal spacing to all table cells */
+}
+
+.table tbody tr:nth-child(odd):hover {
+  background-color: rgb(
+    244,
+    244,
+    244
+  ); /* Light gray background on hover for odd rows */
+}
+
+.table tr:nth-child(even) {
+  background-color: rgb(
+    230,
+    230,
+    230
+  ); /* Light gray background for even rows (zebra striping) */
 }
